@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 
-void f1() {
+void bai1() {
     // ref. https://www.hackerrank.com/challenges/frequency-of-digits-1/problem
     int dem[256];
     for (int i=0; i<256; i++) dem[i]=0;
@@ -23,7 +23,7 @@ void f1() {
     }
 }
 
-void f2() {
+void bai2() {
     FILE* f; char inputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/inf2.txt";
     f = fopen(inputfile, "r");
     if (f == NULL) exit(1);
@@ -51,7 +51,7 @@ void f2() {
     fclose(f2);
 }
 
-void f3() {
+void bai3() {
     //nhap
     FILE* f; char inputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/inf3.txt";
     f = fopen(inputfile, "r");
@@ -74,7 +74,7 @@ void f3() {
     fclose(f2);
 }
 
-void f3b() {
+void bai3b() {
     //nhap
     FILE* f; char inputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/inf3.txt";
     f = fopen(inputfile, "r");
@@ -106,7 +106,47 @@ void f3b() {
     fclose(f2);
 }
 
+void bai4() {
+    FILE *f;
+    char inputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/inf4.txt";
+    f = fopen(inputfile, "r");
+    if (f == NULL) exit(1);
+
+    int MAX = 1024;
+    char s[MAX];
+    fgets(s, MAX, f);
+    int n;
+    n = atoi(s);
+
+    int bo3so[n][3];
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < 3; j++) {
+            fgets(s, MAX, f);
+            int k;
+            k = atoi(s);
+            bo3so[i][j] = k;
+        }
+    }
+    fclose(f);
+
+    //xuat
+    FILE* f2; char outputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/outf4.txt";
+    f2 = fopen(outputfile, "w"); if (f2 == NULL) exit(1);
+
+    for (int i = 0; i < n; i++) {
+        int somin=bo3so[i][0];
+        int somax=bo3so[i][0];
+        for (int j=1; j<3; j++) {
+            if (bo3so[i][j]<somin) somin=bo3so[i][j];
+            if (bo3so[i][j]>somax) somax=bo3so[i][j];
+        }
+        fprintf(f2, "%d %d\n", somin, somax);
+    }
+
+    fclose(f2);
+}
+
 int main() {
-    //f3();
-    f3b();
+    bai4();
 }
