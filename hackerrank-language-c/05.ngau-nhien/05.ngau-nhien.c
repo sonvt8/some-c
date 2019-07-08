@@ -5,8 +5,6 @@
 #include <stdbool.h>
 
 
-void f3();
-
 void f1() {
     // ref. https://www.hackerrank.com/challenges/frequency-of-digits-1/problem
     int dem[256];
@@ -54,9 +52,61 @@ void f2() {
 }
 
 void f3() {
+    //nhap
+    FILE* f; char inputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/inf3.txt";
+    f = fopen(inputfile, "r");
+    if (f == NULL) exit(1);
 
+    int MAX=1024; char s[MAX];
+    fgets(s, MAX, f); int n0; n0 = atoi(s);
+    fgets(s, MAX, f); int n1; n1 = atoi(s);
+    fgets(s, MAX, f); int n2; n2 = atoi(s);
+    fgets(s, MAX, f); int n3; n3 = atoi(s);
+    fgets(s, MAX, f); int n4; n4 = atoi(s);
+    fgets(s, MAX, f); int n5; n5 = atoi(s);
+    fclose(f);
+
+    //xuat
+    FILE* f2; char outputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/outf3.txt";
+    f2 = fopen(outputfile, "w"); if (f2 == NULL) exit(1);
+    fprintf(f2, "Ngay sinh %d-%d-%d\n", n2, n1, n0);
+    fprintf(f2, "Hom nay   %d-%d-%d\n", n5, n4, n3);
+    fclose(f2);
+}
+
+void f3b() {
+    //nhap
+    FILE* f; char inputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/inf3.txt";
+    f = fopen(inputfile, "r");
+    if (f == NULL) exit(1);
+
+    struct NTN {
+        int ng;
+        int th;
+        int nm;
+    };
+    struct NTN ngaysinh;
+    struct NTN homnay;
+
+    int MAX=1024; char s[MAX];
+    int n;
+    fgets(s, MAX, f); n=atoi(s); ngaysinh.ng = n;
+    fgets(s, MAX, f); n=atoi(s); ngaysinh.th = n;
+    fgets(s, MAX, f); n=atoi(s); ngaysinh.nm = n;
+    fgets(s, MAX, f); n=atoi(s); homnay.ng   = n;
+    fgets(s, MAX, f); n=atoi(s); homnay.th   = n;
+    fgets(s, MAX, f); n=atoi(s); homnay.nm   = n;
+    fclose(f);
+
+    //xuat
+    FILE* f2; char outputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/outf3.txt";
+    f2 = fopen(outputfile, "w"); if (f2 == NULL) exit(1);
+    fprintf(f2, "Ngay sinh %d-%02d-%02d\n", ngaysinh.nm, ngaysinh.th, ngaysinh.ng);
+    fprintf(f2, "Ngay sinh %d-%02d-%02d\n", homnay.nm,   homnay.th,   homnay.ng);
+    fclose(f2);
 }
 
 int main() {
-    f3();
+    //f3();
+    f3b();
 }
