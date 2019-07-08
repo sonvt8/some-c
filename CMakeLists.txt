@@ -23,3 +23,5 @@ add_executable(r4b hackerrank-language-c/04b.swap.c)
 add_executable(r4c hackerrank-language-c/04c.kobiet.c)
 add_executable(raa hackerrank-language-c/aa.c)
 
+add_executable(t0 hackerrank-language-c/05.ngau-nhien/05.ngau-nhien.c)
+
