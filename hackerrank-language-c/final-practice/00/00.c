@@ -7,6 +7,27 @@
 
 #define MAX 1024
 
+int cach1(char g, int n, int* marks) {
+    int sum = 0;
+
+    int h;
+    h = (g == 'b') ? 0 : 1;
+    //if (g == 'b') { h = 0; }
+    //else          { h = 1; }
+
+    for (int j = 0; j < n; ++j) {
+        if (j % 2 == h) { // boy day
+            sum += marks[j];
+        }
+    }
+    return sum;
+}
+
+int marks_summation(int* marks, int number_of_students, char gender) {
+    int sum = cach1(gender, number_of_students, marks);
+    return sum;
+}
+
 int main()
 {
     /* ref. https://www.hackerrank.com/challenges/students-marks-sum/problem*/
@@ -27,18 +48,8 @@ int main()
     fclose(f);
 
     // tinh toan
-    int sum = 0;
-
-    int h;
-    h = (g == 'b') ? 0 : 1;
-    //if (g == 'b') { h = 0; }
-    //else          { h = 1; }
-
-    for (int j = 0; j < n; ++j) {
-        if (j % 2 == h) { // boy day
-            sum += marks[j];
-        }
-    }
+    //cach1(g, n, marks);
+    int sum = marks_summation(marks, n, g);
 
     //xuat ra tep
     FILE* f2; char outputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/final-practice/00/output.txt";
