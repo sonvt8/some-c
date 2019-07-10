@@ -109,14 +109,10 @@ void bai3b() {
 void bai4() {
     FILE *f;
     char inputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/inf4.txt";
-    f = fopen(inputfile, "r");
-    if (f == NULL) exit(1);
+    f = fopen(inputfile, "r"); if (f == NULL) exit(1);
 
     int MAX = 1024;
-    char s[MAX];
-    fgets(s, MAX, f);
-    int n;
-    n = atoi(s);
+    char s[MAX]; fgets(s, MAX, f); int n; n = atoi(s);
 
     int bo3so[n][3];
 
@@ -147,6 +143,56 @@ void bai4() {
     fclose(f2);
 }
 
+
+//region bai5
+#define MAX 1024
+
+struct HLT {
+    char ho [MAX];
+    char lot[MAX];
+    char ten[MAX];
+};
+
+void tachhlt(char* s, struct HLT* hlt) {
+    strcpy(hlt->ho,  "some ho");
+    strcpy(hlt->lot, "some lot");
+    strcpy(hlt->ten, "some ten");
+}
+
+void bai5() {
+    FILE *f;
+    char inputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/inf5.txt";
+    f = fopen(inputfile, "r"); if (f == NULL) exit(1);
+
+    char s[MAX]; fgets(s, MAX, f); int n; n = atoi(s);
+
+
+
+    struct HLT hlt_all [n];
+    for (int i=0; i<n; i++) {
+        char s[MAX]; fgets(s, MAX, f);
+        tachhlt(s, &hlt_all[i]);
+    }
+
+    // chugn ta co mang co HLT
+    for (int i=0; i<n; i++) {
+        viethoadautu(hlt_all[i].ten);
+        viethoadautu(hlt_all[i].lot);
+        viethoa(hlt_all[i].ho);
+    }
+
+    //xuat
+    FILE* f2; char outputfile[] = "/home/namgivu/NN/code/_NN_/some-c/hackerrank-language-c/05.ngau-nhien/outf4.txt";
+    f2 = fopen(outputfile, "w"); if (f2 == NULL) exit(1);
+
+    for (int i = 0; i < n; i++) {
+        fprintf(f2, "%s %s %s\n", hlt_all[i].ten, hlt_all[i].lot, hlt_all[i].ho);
+    }
+
+    fclose(f2);
+}
+//endregion bai5
+
 int main() {
-    bai4();
+    bai5();
 }
