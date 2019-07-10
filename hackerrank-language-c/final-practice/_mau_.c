@@ -14,8 +14,8 @@ void mau_nhap() {
     f = fopen(inputfile, "r"); if (f == NULL) exit(1);
 
     //... cac thao tac doc
-    char s[MAX];  fgets(s, MAX, f); //doc 1 chuoi
-    char s2[MAX]; fgets(s2, MAX, f); int n; n = atoi(s2); //doc 1 so nguyen
+    char s[MAX]; fgets(s, MAX, f); int n; n = atoi(s); //doc 1 so nguyen
+    char s2[MAX];  fgets(s2, MAX, f); //doc 1 chuoi
     int a,b,c; fscanf(f, "%d %d %d", &a, &b, &c); //doc 3 so tren 1 hang cach nhau 1 khoang trang
 
     fclose(f);

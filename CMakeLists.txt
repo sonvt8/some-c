@@ -26,4 +26,5 @@ add_executable(raa hackerrank-language-c/aa.c)
 add_executable(t0 hackerrank-language-c/05.ngau-nhien/05.ngau-nhien.c)
 
 add_executable(cmau hackerrank-language-c/final-practice/_mau_.c)
-add_executable(c1 hackerrank-language-c/final-practice/00/00.c)
+add_executable(c0 hackerrank-language-c/final-practice/00/00.c)
+add_executable(c1 hackerrank-language-c/final-practice/01.vu-giang-nam/01.c)
